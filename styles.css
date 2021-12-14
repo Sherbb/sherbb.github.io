@@ -19,7 +19,7 @@ body {
   overflow: auto;
 }
 
-p {
+#BottomText {
   font-size: 15pt;
   font-weight: 300;
   color: gray;
@@ -28,4 +28,23 @@ p {
 .Text {
   text-align: center;
   line-height: 20px;
+}
+
+#sherbb1{
+    color: red;
+}
+#sherbb2{
+    color: orange;
+}
+#sherbb3{
+    color: yellow;
+}
+#sherbb4{
+    color: green;
+}
+#sherbb5{
+    color: blue;
+}
+#sherbb6{
+    color: indigo;
 }
