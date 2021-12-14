@@ -7,7 +7,7 @@ body {
 
 .Center {
   user-select: none;
-  font-size: 50pt;
+  font-size: 60pt;
   position: fixed;
   display: flex;
   justify-content: center;
