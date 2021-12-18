@@ -18,6 +18,7 @@ body {
   align-items: center;
   overflow: auto;
 }
+
 .Middle {
   user-select: none;
   font-size: 60pt;
