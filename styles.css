@@ -3,14 +3,24 @@ body {
   color: white;
   font-family: 'Poppins', Courier, monospace;
   font-weight: 500;
+  z-index: 1;
+  margin: 0px;
 }
 
-.Center {
-  box-sizing: border-box;
-
+.FullscreenBox {
+  height: 100vh;
+  width: 100%;
   user-select: none;
   font-size: 60pt;
-  position: fixed;
+  position:relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+}
+.Middle {
+  user-select: none;
+  font-size: 60pt;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,7 +42,7 @@ body {
   image-rendering: crisp-edges;
 
   animation-name: videoFadeIn;
-  animation-duration: 7s;
+  animation-duration: 3s;
 }
 
 @keyframes videoFadeIn {
