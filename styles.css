@@ -19,6 +19,22 @@ body {
   overflow: auto;
 }
 
+.HeadFoot{
+  color: white;
+  background-size: 128px;
+  height: 128px;
+  width: 100%;
+  user-select: none;
+  font-size: 70pt;
+  position:relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow:hidden;
+  letter-spacing: 20pt;
+  font-family: 'Play', sans-serif;
+}
+
 .Middle {
   user-select: none;
   font-size: 60pt;
