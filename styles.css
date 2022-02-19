@@ -1,0 +1,279 @@
+body {
+  background-color: black;
+  color: white;
+  font-family: 'Poppins', Courier, monospace;
+  font-weight: 500;
+  z-index: 1;
+  margin: 0px;
+}
+p{
+  color: gray;
+  font-weight: 400;
+  font-size: 11pt;
+  text-align: left;
+}
+
+.FullscreenBox {
+  height: 100vh;
+  width: 100%;
+  user-select: none;
+  font-size: 60pt;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  flex-direction: column;
+}
+
+.HeadFoot {
+  color: white;
+  background-size: 128px;
+  height: 128px;
+  width: 100%;
+  user-select: none;
+  font-size: 70pt;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  letter-spacing: 20pt;
+  font-family: 'Play', sans-serif;
+}
+
+.Middle {
+  user-select: none;
+  font-size: 60pt;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+}
+
+#headerVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  image-rendering: crisp-edges;
+
+  animation-name: videoFadeIn;
+  animation-duration: 3s;
+}
+#fullscreenImages {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  image-rendering: crisp-edges;
+
+  filter: opacity(60%);
+}
+
+@keyframes videoFadeIn {
+  from {
+    font-size: 0;
+    filter: opacity(0%);
+  }
+  20% {
+    filter: opacity(0%);
+  }
+  to {
+    filter: opacity(100%);
+  }
+}
+
+#BottomText {
+  font-size: 15pt;
+  font-weight: 300;
+  color: gray;
+}
+
+.Text {
+  text-align: center;
+  align-items: baseline;
+  line-height: 150px;
+  --animationduration: 0.75s;
+  --animationcurve: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --sherbbsize: 90pt;
+}
+.ListHeader {
+  color: gray;
+  text-align: center;
+  align-items: baseline;
+  line-height: 50px;
+  font-size: 30pt;
+  font-weight: 300;
+  animation-name: bottomTextAnimate;
+  animation-duration: 4s;
+  animation-timing-function: var(--animationcurve);
+}
+.ListItem {
+  color: lightgrey;
+  text-align: center;
+  align-items: baseline;
+  line-height: 50px;
+  font-size: 35pt;
+  font-weight: 400;
+}
+
+.InfoBox {
+  border-radius: 25px;
+  background: rgb(0, 0, 0, 0.5);
+  box-shadow: 7px 7px 30px rgb(0, 0, 0, 0.5);
+  width: 800px;
+  height: 400px;
+  backdrop-filter: blur(5px);
+  display: flex;
+  
+  justify-content: center;
+  align-items: center;
+  transition-duration: .35s;
+}
+.InfoBox:hover {
+  transform: scale(1.05);
+  box-shadow: 10px 10px 50px rgb(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+}
+.InfoBlock {
+  border-radius: 25px;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  margin: 50px;
+  text-align: center;
+  font-size: 30pt;
+  transition-duration: .15s;
+
+}
+
+#GridformInfoTitle {
+  font-family: 'Play';
+  letter-spacing: 9pt;
+}
+#GameNumber {
+  position: absolute;
+  left: 0;
+  top: -19pt;
+  color: gray;
+  font-size: 20pt;
+  letter-spacing: 3pt;
+}
+.InfoButton {
+  font-family: 'Poppins', Courier, monospace;
+  width: 300px;
+  height: 50px;
+  border-radius: 25px;
+  font-size: 20pt;
+  letter-spacing: 5pt;
+  color: white;
+  background-color: rgb(0, 0, 0,0);
+  border-color: white;
+  border-width: 2px;
+  transition-duration: .1s;
+  align-self: center;
+  font-weight: 500;
+  text-decoration: none;
+  border-style: solid;
+}
+.InfoButton:hover {
+  background-color: white;
+  color: black;
+}
+.InfoButton:active {
+  background-color: greenyellow;
+  border-color: greenyellow;
+  color: black;
+  width: 280px;
+}
+
+
+#sherbb1 {
+  color: red;
+  font-size: var(--sherbbsize);
+  animation-name: sherbbAnimate;
+  animation-duration: 0.7s;
+  animation-timing-function: var(--animationcurve);
+  vertical-align: middle;
+  display: inline-flex;
+}
+#sherbb2 {
+  color: orange;
+  font-size: var(--sherbbsize);
+  animation-name: sherbbAnimate;
+  animation-duration: 0.8s;
+  animation-timing-function: var(--animationcurve);
+  vertical-align: middle;
+  display: inline-flex;
+}
+#sherbb3 {
+  color: yellow;
+  font-size: var(--sherbbsize);
+  animation-name: sherbbAnimate;
+  animation-duration: 0.9s;
+  animation-timing-function: var(--animationcurve);
+  vertical-align: middle;
+  display: inline-flex;
+}
+#sherbb4 {
+  color: green;
+  font-size: var(--sherbbsize);
+  animation-name: sherbbAnimate;
+  animation-duration: 1s;
+  animation-timing-function: var(--animationcurve);
+  vertical-align: middle;
+  display: inline-flex;
+}
+#sherbb5 {
+  color: blue;
+  font-size: var(--sherbbsize);
+  animation-name: sherbbAnimate;
+  animation-duration: 1.2s;
+  animation-timing-function: var(--animationcurve);
+  vertical-align: middle;
+  display: inline-flex;
+}
+#sherbb6 {
+  color: indigo;
+  font-size: var(--sherbbsize);
+  animation-name: sherbbAnimate;
+  animation-duration: 1.3s;
+  animation-timing-function: var(--animationcurve);
+  vertical-align: middle;
+  display: inline-flex;
+}
+
+@keyframes sherbbAnimate {
+  from {
+    font-size: 0;
+  }
+  50% {
+    font-size: 110pt;
+  }
+  to {
+    font-size: var(--sherbbsize);
+  }
+}
+
+@keyframes bottomTextAnimate {
+  from {
+    filter: opacity(0%);
+  }
+  20% {
+    filter: opacity(0%);
+  }
+  to {
+    filter: opacity(100%);
+  }
+}
