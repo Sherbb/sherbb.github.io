@@ -13,9 +13,20 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #FFFFE3;
+  background-color: black;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+::-moz-selection { /* Code for Firefox */
+  color: black;
+  background: #FFFFE3;
+}
+
+::selection {
+  color: black;
+  background: #FFFFE3;
 }
