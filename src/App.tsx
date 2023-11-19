@@ -1,17 +1,47 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ProjectListItem from "./components/projectsItem";
 import { ProjectData, ProjectDatabase } from "./ProjectsDatabase";
 import FullscreenIcon from "@mui/icons-material/Fullscreen";
 
 import TempImage from "./images/gfHoz3.png";
+import TempImage2 from "./images/gf.jpg";
+import { useSearchParams } from "react-router-dom";
 
 function App() {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const initProject = () => {
+    for (let i = 0; i < ProjectDatabase.length; i++) {
+      console.log(searchParams.get("project"));
+      if (searchParams.get("project") === ProjectDatabase[i].title) {
+        return ProjectDatabase[i];
+      }
+    }
+    return ProjectDatabase[0];
+  };
+
+  // Ummm.... basically storying the page stat in URL param. This lets you BACK our of gallery.
+  // And lets you share a link to a project and gallery view
+  useEffect(() => {
+    if (searchParams.get("project") !== selectedProject.title) {
+      //close gallery on back.
+      setShowGallery(false);
+    }
+    setShowGallery(searchParams.get("view") === "gallery");
+    for (let i = 0; i < ProjectDatabase.length; i++) {
+      if (searchParams.get("project") === ProjectDatabase[i].title) {
+        setSelectedProject(ProjectDatabase[i]);
+        return;
+      }
+    }
+    setSelectedProject(ProjectDatabase[0]);
+  }, [searchParams]);
+
   const [selectedProject, setSelectedProject] = useState<ProjectData>(
-    ProjectDatabase[0]
+    initProject()
   );
 
   const [descriptionAnimation, setDescriptionAnimation] = useState(false);
-
   const [showGallery, setShowGallery] = useState(false);
 
   const setProject = (projectTitle: string) => {
@@ -20,8 +50,9 @@ function App() {
     }
     for (let i = 0; i < ProjectDatabase.length; i++) {
       if (ProjectDatabase[i].title === projectTitle) {
-        setSelectedProject(ProjectDatabase[i]);
+        //setSelectedProject(ProjectDatabase[i]);
         setDescriptionAnimation(true);
+        setSearchParams({ project: ProjectDatabase[i].title });
         return;
       }
     }
@@ -65,7 +96,12 @@ function App() {
                 {/* Gallery Button */}
                 <button
                   className="flex shadow-xl h-min flex-row gap-4 bg-black/50 backdrop-blur-xl pl-8 pr-8 pt-4 pb-4 rounded-[25px] hover:bg-offwhite hover:text-black"
-                  onClick={() => setShowGallery(true)}
+                  onClick={() =>
+                    setSearchParams({
+                      project: selectedProject.title,
+                      view: "gallery",
+                    })
+                  }
                 >
                   <p>Gallery</p>
                   <FullscreenIcon />
@@ -80,10 +116,10 @@ function App() {
         {/* List section */}
 
         <div className="flex flex-col w-[512px] pt-8 pb-8">
-          <p className="font-light text-4xl relative select-none">
+          <text className="font-light text-4xl relative select-none">
             Projects
             <div className="absolute left-[-40px] top-0 bottom-0 m-auto h-[3px] rounded w-4 bg-offwhite"></div>
-          </p>
+          </text>
           <div className="h-4" />
 
           {/* Projects list */}
@@ -109,10 +145,10 @@ function App() {
             }
             onAnimationEnd={() => setDescriptionAnimation(false)}
           >
-            <p className="font-light text-4xl relative">
+            <text className="font-light text-4xl relative">
               {selectedProject.title}
               <div className="absolute left-[-40px] top-0 bottom-0 m-auto h-[3px] rounded w-4 bg-offwhite"></div>
-            </p>
+            </text>
             <p>{selectedProject.description}</p>
             {selectedProject.link && selectedProject.linkText && (
               <a
@@ -132,7 +168,20 @@ function App() {
   const Gallery = () => {
     return (
       <>
-        <div className="w-[1090px] flex flex-col gap-4"></div>
+        <div className="w-[1090px] flex flex-col gap-4 overflow-auto pr-8">
+          <img
+            className="object-fit box-border w-full h-fit rounded-[32px] border border-offwhite/[0.05]"
+            src={TempImage2}
+          />
+          <img
+            className="object-fit box-border w-full h-fit rounded-[32px] border border-offwhite/[0.05]"
+            src={TempImage2}
+          />
+          <img
+            className="object-fit box-border w-full h-fit rounded-[32px] border border-offwhite/[0.05]"
+            src={TempImage2}
+          />
+        </div>
       </>
     );
   };

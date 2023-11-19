@@ -30,3 +30,18 @@ code {
   color: black;
   background: #FFFFE3;
 }
+
+::-webkit-scrollbar {
+  scroll-behavior: smooth;
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background-color: #ffffe324;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #ffffe3;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #ffffe367;
+}
