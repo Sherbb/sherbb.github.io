@@ -12,7 +12,7 @@ module.exports = {
         slideIn: 'slideIn .2s ease-out',
         slideOut: 'slideOut .1s ease-out',
         descriptionSlideIn: 'descriptionSlideIn .35s ease-out',
-        fadeIn: 'fadeIn 2s ease-in-out',
+        fadeIn: 'fadeIn 1.3s ease-in-out',
         blobSpin: 'blobSpin 200s infinite',
       },
       keyframes: {
