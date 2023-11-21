@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import ProjectListItem from "./components/projectsItem";
-import { ProjectData, ProjectDatabase } from "./ProjectsDatabase";
+import {
+  ProjectCategories,
+  ProjectData,
+  ProjectDatabase,
+} from "./ProjectsDatabase";
 import FullscreenIcon from "@mui/icons-material/Fullscreen";
+import FullscreenExitIcon from "@mui/icons-material/FullscreenExit";
 
-import TempImage from "./images/gfHoz3.png";
-import TempImage2 from "./images/gf.jpg";
 import { useSearchParams } from "react-router-dom";
 
 function App() {
@@ -41,7 +44,7 @@ function App() {
     initProject()
   );
 
-  const [descriptionAnimation, setDescriptionAnimation] = useState(false);
+  const [newProjectAnimation, setNewProjectAnimation] = useState(false);
   const [showGallery, setShowGallery] = useState(false);
 
   const setProject = (projectTitle: string) => {
@@ -51,7 +54,7 @@ function App() {
     for (let i = 0; i < ProjectDatabase.length; i++) {
       if (ProjectDatabase[i].title === projectTitle) {
         //setSelectedProject(ProjectDatabase[i]);
-        setDescriptionAnimation(true);
+        setNewProjectAnimation(true);
         setSearchParams({ project: ProjectDatabase[i].title });
         return;
       }
@@ -61,7 +64,7 @@ function App() {
   const MainPage = () => {
     return (
       <>
-        <div className="w-[512px] flex flex-col gap-4">
+        <div className="w-[512px] flex flex-col gap-4 animate-fadeInFast">
           <div className="rounded-[32px] bg-offwhite/[0.03] p-8 border border-offwhite/[0.05]">
             <p className="font-light text-4xl">Alan Sherba</p>
             <div className="h-4" />
@@ -84,38 +87,52 @@ function App() {
           <div className="relative select-none min-h-0 bg-offwhite/[0.03] flex-grow rounded-[32px] pr-4">
             {/* Inside border without messing with box */}
             <div className="absolute top-0 left-0 right-0 bottom-0 border border-offwhite/[0.05] rounded-[32px]" />
-            <div className="relative bg-offwhite/[0.03] w-full h-full rounded-[32px] pr-4">
-              {/* Inside border without messing with box */}
-              <div className="absolute top-0 left-0 right-0 bottom-0 border border-offwhite/[0.05] rounded-[32px]" />
-              <img
-                className="object-cover box-border w-full h-full rounded-[32px] border border-offwhite/[0.05]"
-                src={TempImage}
-              ></img>
-              {/* Inside border without messing with box. This ones positioned well so we use it as the IMG container div*/}
-              <div className="absolute flex justify-end top-0 left-0 right-[16px] bottom-0 border border-offwhite/[0.05] rounded-[32px] p-4">
-                {/* Gallery Button */}
-                <button
-                  className="flex shadow-xl h-min flex-row gap-4 bg-black/50 backdrop-blur-xl pl-8 pr-8 pt-4 pb-4 rounded-[25px] hover:bg-offwhite hover:text-black"
-                  onClick={() =>
-                    setSearchParams({
-                      project: selectedProject.title,
-                      view: "gallery",
-                    })
-                  }
-                >
-                  <p>Gallery</p>
-                  <FullscreenIcon />
-                </button>
-              </div>
-            </div>
+            {selectedProject.media.length > 0 && (
+              <>
+                <div className="relative bg-offwhite/[0.03] w-full h-full rounded-[32px] pr-4">
+                  {/* Inside border without messing with box */}
+                  <div className="absolute top-0 left-0 right-0 bottom-0 border border-offwhite/[0.05] rounded-[32px]" />
+                  <img
+                    className={
+                      "object-cover box-border w-full h-full rounded-[32px] border border-offwhite/[0.05]" +
+                      (newProjectAnimation ? " animate-galleryHeroSlideIn" : "")
+                    }
+                    src={
+                      process.env.PUBLIC_URL +
+                      "/images/" +
+                      selectedProject.media[0]
+                    }
+                    key={selectedProject.media[0]}
+                  />
+                  {/* Inside border without messing with box. This ones positioned well so we use it as the IMG container div*/}
+                  <div className="absolute flex justify-end top-0 left-0 right-[16px] bottom-0 border border-offwhite/[0.05] rounded-[32px] p-4">
+                    {/* Gallery Button */}
+                    {selectedProject.media.length > 1 && (
+                      <button
+                        className="flex shadow-xl h-min flex-row gap-4 bg-black/50 backdrop-blur-xl pl-8 pr-8 pt-4 pb-4 rounded-[25px] hover:bg-offwhite hover:text-black"
+                        onClick={() =>
+                          setSearchParams({
+                            project: selectedProject.title,
+                            view: "gallery",
+                          })
+                        }
+                      >
+                        <p>Gallery</p>
+                        <FullscreenIcon />
+                      </button>
+                    )}
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </div>
 
-        <div className="h-full w-[2px] bg-[#30302B4D]" />
+        <div className="h-full w-[2px] bg-[#30302B4D] animate-fadeInFast" />
 
         {/* List section */}
 
-        <div className="flex flex-col w-[512px] pt-8 pb-8">
+        <div className="flex flex-col w-[512px] pt-8 pb-8 animate-fadeInFast">
           <text className="font-light text-4xl relative select-none">
             Projects
             <div className="absolute left-[-40px] top-0 bottom-0 m-auto h-[3px] rounded w-4 bg-offwhite"></div>
@@ -123,17 +140,29 @@ function App() {
           <div className="h-4" />
 
           {/* Projects list */}
-          {ProjectDatabase.map((project) => (
-            <ProjectListItem
-              key={project.title}
-              title={project.title}
-              subtitle={project.subtitle}
-              year={project.year}
-              selected={project.title === selectedProject.title}
-              onClick={() => {
-                setProject(project.title);
-              }}
-            />
+          {ProjectCategories.map((category) => (
+            <>
+              <text className="font-light opacity-30 relative select-none">
+                {category}
+              </text>
+              {ProjectDatabase.map((project) => {
+                return project.category == category ? (
+                  <ProjectListItem
+                    key={project.title + category}
+                    title={project.title}
+                    subtitle={project.subtitle}
+                    year={project.year}
+                    selected={project.title === selectedProject.title}
+                    onClick={() => {
+                      setProject(project.title);
+                    }}
+                  />
+                ) : (
+                  <></>
+                );
+              })}
+              <div className="h-3" />
+            </>
           ))}
 
           <div className="flex-grow" />
@@ -141,9 +170,9 @@ function App() {
           <div
             className={
               "flex flex-col gap-4 " +
-              (descriptionAnimation ? "animate-descriptionSlideIn" : "")
+              (newProjectAnimation ? "animate-descriptionSlideIn" : "")
             }
-            onAnimationEnd={() => setDescriptionAnimation(false)}
+            onAnimationEnd={() => setNewProjectAnimation(false)}
           >
             <text className="font-light text-4xl relative">
               {selectedProject.title}
@@ -167,22 +196,29 @@ function App() {
 
   const Gallery = () => {
     return (
-      <>
-        <div className="w-[1090px] flex flex-col gap-4 overflow-auto pr-8">
-          <img
-            className="object-fit box-border w-full h-fit rounded-[32px] border border-offwhite/[0.05]"
-            src={TempImage2}
-          />
-          <img
-            className="object-fit box-border w-full h-fit rounded-[32px] border border-offwhite/[0.05]"
-            src={TempImage2}
-          />
-          <img
-            className="object-fit box-border w-full h-fit rounded-[32px] border border-offwhite/[0.05]"
-            src={TempImage2}
-          />
+      <div className="relative flex w-[1090px] h-full animate-fadeInFast">
+        <div className="flex flex-col gap-4 overflow-auto pr-8">
+          {selectedProject.media.slice(1).map((mediaString, index) => (
+            <img
+              key={mediaString}
+              className="object-fit box-border w-full h-fit rounded-[32px] border border-offwhite/[0.05]"
+              src={process.env.PUBLIC_URL + "/images/" + mediaString}
+            />
+          ))}
         </div>
-      </>
+        <button
+          className="absolute drop-shadow-closeButton right-[-200px] top-0 flex shadow-xl h-min flex-row gap-4 bg-black/50 backdrop-blur-xl pl-8 pr-8 pt-4 pb-4 rounded-[25px] hover:bg-offwhite hover:text-black"
+          onClick={() =>
+            setSearchParams({
+              project: selectedProject.title,
+              view: "list",
+            })
+          }
+        >
+          <p>Close</p>
+          <FullscreenExitIcon />
+        </button>
+      </div>
     );
   };
 
@@ -205,7 +241,6 @@ function App() {
       <div className="h-full w-[2px] bg-[#30302B4D]" />
 
       {/* Contact section */}
-
       <div className="grow grid place-items-end">
         <div className="text-right">
           <p className="font-bold right-0 text-4xl">Contact</p>

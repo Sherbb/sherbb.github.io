@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      dropShadow: {
+        'closeButton': '0 8px 64px rgba(255, 255, 255, 0.45)',
+      },
       colors: {
         'offwhite': '#FFFFE3',
       },
@@ -12,7 +15,9 @@ module.exports = {
         slideIn: 'slideIn .2s ease-out',
         slideOut: 'slideOut .1s ease-out',
         descriptionSlideIn: 'descriptionSlideIn .35s ease-out',
+        galleryHeroSlideIn: 'galleryHeroSlideIn .35s ease-out',
         fadeIn: 'fadeIn 1.3s ease-in-out',
+        fadeInFast: 'fadeIn .3s ease-out',
         blobSpin: 'blobSpin 200s infinite',
       },
       keyframes: {
@@ -26,6 +31,10 @@ module.exports = {
         },
         descriptionSlideIn: {
           '0%': { opacity: '0', transform: 'translate(0,32px)'},
+          '100%': { opacity: '100' },
+        },
+        galleryHeroSlideIn: {
+          '0%': { opacity: '0', transform: 'translate(-8px,0px)'},
           '100%': { opacity: '100' },
         },
         fadeIn: {
