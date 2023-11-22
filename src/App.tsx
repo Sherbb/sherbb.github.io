@@ -242,9 +242,28 @@ function App() {
 
       {/* Contact section */}
       <div className="grow grid place-items-end">
-        <div className="text-right">
+        <div className="text-right pr-8 pb-8">
           <p className="font-bold right-0 text-4xl">Contact</p>
-          <p className="font-light text-base">alansherba@gmail.com</p>
+          <a
+            className="font-light text-base select-text hover:underline text-[#71BBFF]"
+            href="mailto:alansherba@gmail.com"
+          >
+            alansherba@gmail.com
+          </a>
+          <br />
+          <a
+            className="font-light text-base hover:underline text-[#71BBFF]"
+            href="https://twitter.com/AlanSherba"
+          >
+            Twitter
+          </a>
+          <br />
+          <a
+            className="font-light text-base hover:underline text-[#71BBFF]"
+            href="https://www.linkedin.com/in/alan-sherba-365784141/"
+          >
+            LinkedIn
+          </a>
         </div>
       </div>
     </div>

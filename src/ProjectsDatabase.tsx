@@ -57,25 +57,56 @@ export const ProjectDatabase: readonly ProjectData[] = [
         description: "Describe the game here",
         media: [
             "lootcorp/lcHero.png",
+            "lootcorp/lcG1.gif",
+            "lootcorp/lc1.png",
+            "lootcorp/lc2.png",
+            "lootcorp/lc3.png",
         ]
     },
 
     {
         category: "Spatial",
-        title: "Temp data2",
-        subtitle: "Game I made....",
+        title: "Creator Toolkit",
+        subtitle: "Unity UGC SDK",
         year: "22",
         description: "Describe the game here",
-        media: []
+        media: [
+            "spatial/toolkitHero.jpg"
+        ]
     },
 
     {
         category: "Spatial",
-        title: "Temp data3",
-        subtitle: "Game I made....",
-        year: "22",
+        title: "Shooty Shooty",
+        subtitle: "",
+        year: "23",
         description: "Describe the game here",
-        media: []
+        media: [
+            "spatial/ssHero.jpg",
+            "spatial/ss1.jpg",
+            "spatial/ss2.jpg",
+            "spatial/ss3.jpg",
+            "spatial/ss4.jpg",
+            "spatial/ss5.jpg",
+            "spatial/ss6.jpg",
+            "spatial/ss7.jpg",
+            "spatial/ss8.jpg",
+        ]
+    },
+
+    {
+        category: "Spatial",
+        title: "Punch Hero",
+        subtitle: "",
+        year: "23",
+        description: "Describe the game here",
+        media: [
+            "spatial/phHero.jpg",
+            "spatial/ph1.jpg",
+            "spatial/ph2.jpg",
+            "spatial/ph3.jpg",
+            "spatial/ph4.jpg",
+        ]
     },
 
     {
