@@ -66,13 +66,16 @@ function App() {
       <>
         <div className="w-[512px] flex flex-col gap-4 animate-fadeInFast">
           <div className="rounded-[32px] bg-offwhite/[0.03] p-8 border border-offwhite/[0.05]">
-            <p className="font-light text-4xl">Alan Sherba</p>
+            <p className="font-light text-4xl">
+              Alan Sherba
+              <span className="text-sm opacity-30 pl-0"> aka: Sherbb</span>
+            </p>
             <div className="h-4" />
             <p className="font-light text-base">
               Gameplay <span className="font-black">Programmer</span>
             </p>
             <p className="font-light text-base">
-              UX, Feel, Action, Game{" "}
+              UI, UX, Feel, Action, Game{" "}
               <span className="font-black">Designer</span>
             </p>
             <p className="font-light text-base">
@@ -109,7 +112,7 @@ function App() {
                     {/* Gallery Button */}
                     {selectedProject.media.length > 1 && (
                       <button
-                        className="flex shadow-xl h-min flex-row gap-4 bg-black/50 backdrop-blur-xl pl-8 pr-8 pt-4 pb-4 rounded-[25px] hover:bg-offwhite hover:text-black"
+                        className="flex drop-shadow-closeButton animate-fadeInFast shadow-xl h-min flex-row gap-4 bg-black/50 backdrop-blur-xl pl-8 pr-8 pt-4 pb-4 rounded-[25px] hover:bg-offwhite hover:text-black"
                         onClick={() =>
                           setSearchParams({
                             project: selectedProject.title,
@@ -178,7 +181,7 @@ function App() {
               {selectedProject.title}
               <div className="absolute left-[-40px] top-0 bottom-0 m-auto h-[3px] rounded w-4 bg-offwhite"></div>
             </text>
-            <p>{selectedProject.description}</p>
+            <p className="whitespace-pre-line">{selectedProject.description}</p>
             {selectedProject.link && selectedProject.linkText && (
               <a
                 className="underline text-[#71BBFF]"
@@ -254,6 +257,7 @@ function App() {
           <a
             className="font-light text-base hover:underline text-[#71BBFF]"
             href="https://twitter.com/AlanSherba"
+            target="_blank"
           >
             Twitter
           </a>
@@ -261,6 +265,7 @@ function App() {
           <a
             className="font-light text-base hover:underline text-[#71BBFF]"
             href="https://www.linkedin.com/in/alan-sherba-365784141/"
+            target="_blank"
           >
             LinkedIn
           </a>
