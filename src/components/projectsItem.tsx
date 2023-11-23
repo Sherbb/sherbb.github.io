@@ -9,7 +9,7 @@ interface ProjectListItemProps {
 const ProjectListItem = (props: ProjectListItemProps) => (
   <div
     className={
-      "relative flex gap-2 group hover cursor-pointer select-none " +
+      "hover group relative flex cursor-pointer select-none gap-2 " +
       (props.selected ? "opacity-100" : "opacity-30 hover:opacity-70")
     }
     onClick={props.onClick}
@@ -20,10 +20,10 @@ const ProjectListItem = (props: ProjectListItemProps) => (
     <p className="font-light text-offwhite opacity-50">{props.year}</p>
     <div
       className="
-        absolute origin-left scale-x-0 animate-slideOut bg-offwhite bottom-[2px] left-0 right-0 h-[1px] group-hover:animate-slideIn group-hover:scale-x-100"
+        absolute bottom-[2px] left-0 right-0 h-[1px] origin-left scale-x-0 animate-slideOut bg-offwhite group-hover:scale-x-100 group-hover:animate-slideIn"
     ></div>
     {props.selected && (
-      <div className="absolute left-[-16px] top-0 bottom-0 m-auto w-1 h-1 rounded-xl bg-offwhite" />
+      <div className="absolute bottom-0 left-[-16px] top-0 m-auto h-1 w-1 rounded-xl bg-offwhite" />
     )}
   </div>
 );
