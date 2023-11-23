@@ -103,10 +103,17 @@ Created for a college project during 2020.`,
         title: "Spatial.io",
         subtitle: "Social Gaming Platform",
         year: "22",
-        description: "Describe the game here",
+        description: 
+`Spatial was born as an AR/VR meeting and conferencing app, but was reformed into a web-based social gaming platform with my help.
+
+On Spatial you can play games, earn items and collectables, and make friends. Every game on Spatial is built upon the Multiplayer Spatial Engine which itself is built in Unity.
+
+Spatial is an extremely fast moving startup and I've had my hands in almost every corner of it.`,
         media: [
             "spatial/platformHero.jpg"
-        ]
+        ],
+        link: "https://www.spatial.io/",
+        linkText: "Spatial.io",
     },
 
     {
