@@ -9,6 +9,7 @@ import FullscreenIcon from "@mui/icons-material/Fullscreen";
 import FullscreenExitIcon from "@mui/icons-material/FullscreenExit";
 
 import { useSearchParams } from "react-router-dom";
+import ProfileCard from "./components/profileCard";
 
 function App() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -63,26 +64,7 @@ function App() {
     return (
       <>
         <div className="flex w-[512px] animate-fadeInFast flex-col gap-4">
-          <div className="rounded-[32px] border border-offwhite/[0.05] bg-offwhite/[0.03] p-8">
-            <p className="text-4xl font-light">
-              Alan Sherba
-              <span className="pl-0 text-sm opacity-30"> aka: Sherbb</span>
-            </p>
-            <div className="h-4" />
-            <p className="text-base font-light">
-              Gameplay <span className="font-black">Programmer</span>
-            </p>
-            <p className="text-base font-light">
-              UI, UX, Feel, Action, Game{" "}
-              <span className="font-black">Designer</span>
-            </p>
-            <p className="text-base font-light">
-              Unity <span className="font-black">Engineer</span>
-            </p>
-            <p className="text-base font-light">
-              VFX, Tech <span className="font-black">Artist</span>
-            </p>
-          </div>
+          <ProfileCard background/>
 
           {/* Media Gallery */}
           <div className="relative min-h-0 flex-grow select-none rounded-[32px] bg-offwhite/[0.03] pr-4">
@@ -229,7 +211,7 @@ function App() {
     }
     return MainPage();
   };
-
+  
   return (
     <div className="absolute flex h-full w-full animate-fadeIn flex-row gap-8 overflow-clip bg-black p-4">
       {/* Color blobs */}
