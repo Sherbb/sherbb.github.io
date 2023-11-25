@@ -183,7 +183,7 @@ function App() {
             <p className="whitespace-pre-line">{selectedProject.description}</p>
             {selectedProject.link && selectedProject.linkText && (
               <a
-                className="text-[#71BBFF] underline"
+                className="text-[#71BBFF] hover:underline"
                 target="_blank"
                 href={selectedProject.link}
               >
