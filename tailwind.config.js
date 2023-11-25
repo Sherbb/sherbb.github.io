@@ -10,8 +10,8 @@ module.exports = {
         offwhite: "#FFFFE3",
       },
       animation: {
-        slideIn: "slideIn .2s ease-out",
-        slideOut: "slideOut .1s ease-out",
+        slideIn: "slideIn .4s ease-out",
+        slideOut: "slideOut .3s ease-out",
         descriptionSlideIn: "descriptionSlideIn .35s ease-out",
         galleryHeroSlideIn: "galleryHeroSlideIn .35s ease-out",
         fadeIn: "fadeIn 1.3s ease-in-out",

@@ -15,7 +15,6 @@ function App() {
 
   const initProject = () => {
     for (let i = 0; i < ProjectDatabase.length; i++) {
-      console.log(searchParams.get("project"));
       if (searchParams.get("project") === ProjectDatabase[i].title) {
         return ProjectDatabase[i];
       }
