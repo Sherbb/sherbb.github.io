@@ -214,10 +214,6 @@ function App() {
   
   return (
     <div className="absolute flex h-full w-full animate-fadeIn flex-row gap-8 overflow-clip bg-black p-4">
-      {/* Color blobs */}
-      <div className="absolute right-[64px] h-[800px] w-[64px] rotate-[330deg] bg-[#448FFF] blur-[256px]" />
-      <div className="absolute bottom-[64px] left-0 h-[64px] w-[600px] rotate-[-30deg] bg-offwhite blur-[256px]" />
-      <div className="absolute left-0 top-[64px] h-[48px] w-[1200px] rotate-[20deg] bg-offwhite blur-[256px]" />
 
       {BodySection()}
 
